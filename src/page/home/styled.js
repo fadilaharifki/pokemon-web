@@ -1,0 +1,203 @@
+import styled from "@emotion/styled"
+
+export const Section = styled.section`
+    height: 100vh;
+    overflow-y: scroll;
+`
+
+export const ContainerList = styled.div`
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    flex-wrap: wrap;
+    width: 100%;
+`
+
+export const Card = styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width: 125px;
+    height: 125px;
+    padding: 20px;
+    margin: 5px;
+    background-image:  linear-gradient(90deg, rgba(177,240,227,1) 0%, rgba(143,201,130,1) 46%, rgba(242,255,141,1) 100%);
+    border-radius: 15px;
+    cursor: pointer;
+
+    @media screen and (max-width: 374px) {
+        width: 90px;
+        height: 90px;
+        padding: 30px 20px;
+    }
+
+    &:hover {
+        -webkit-transform: scale(1.08);
+        transform: scale(1.08);
+    };
+
+    &:focus {
+        -webkit-transform: scale(1.08);
+        transform: scale(1.08);
+    }
+`
+
+export const TitleCard = styled.div`
+    text-transform: uppercase;
+    text-align:center;
+    font-weight:bold;
+
+    @media screen and (max-width: 374px) {
+        font-size:13px;
+    }
+`
+
+export const PositionTypeContainer = styled.div`
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    font-weight:bold;
+`
+
+export const PositionType = styled.div`
+    margin:10px 2px;
+    border-radius:10px;
+    background: #de6000;
+    padding: 5px 10px;
+    color:white;
+    @media screen and (max-width: 375px) {
+        font-size:13px;
+    }
+`
+
+export const ShapeBackgorund = styled.div`
+    width: 100%;
+    height :7rem;
+    border-radius: 0 0 0 100px;
+    background-image: linear-gradient(90deg, rgba(34,195,94,1) 0%, rgba(253,231,45,1) 100%);
+`
+
+export const ContainerDetail = styled.div`
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+`
+
+export const CardDetail = styled.div`
+    margin-top:-3rem;
+    padding:20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background:white;
+    z-index:10;
+    width: 70%;
+    height :12rem;
+    border-radius:20px;
+    `
+
+export const CardBottom = styled.div`
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 80px 0 0 30px;
+    psition:fixed;
+    margin-top:-3rem;
+    z-index:1;
+    background:white;
+    height : auto;
+    border-radius: 100px 0 0 0;
+
+`
+
+export const ContainerChart = styled.div`
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items:center;
+`
+
+export const Bar = styled.div`
+    box-sizing: border-box;
+    width: 150px;
+    height: 10px;
+    background: #ededed;
+    border-radius:20px;
+`
+
+export const Bar2 = styled.div`
+    box-sizing: border-box;
+    width: ${(props) => `${props.size * 1.5}px`};
+    height: 10px;
+    border-radius:20px;
+    background: ${(props) => `${props.size > 50 ? "green" : "orange"}`};
+`
+
+export const TitleChart = styled.div`
+    width:100px
+`
+export const NumberChart = styled.div`
+    font-weight:bold;
+    margin-right: 5px;
+`
+
+export const TitleBottom = styled.div`
+    text-transform: uppercase;
+    font-weight:bold;
+    margin: 10px 0;
+    @media screen and (max-width: 374px) {
+        font-size:13px;
+    }
+`
+
+export const Desc = styled.div`
+    margin-bottom:40px;
+`
+export const ContainerAbility = styled.div`
+    display: flex;  
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: start;
+    align-items:center;
+    width: 100%;
+`
+export const ContainerMove = styled.div`
+    display: flex;  
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: start;
+    align-items:center;
+    padding-bottom:100px;
+    width: 100%;
+`
+
+export const PositionAbility = styled.div`
+    margin-right:10px;
+    border-radius:10px;
+    background: #ededed;
+    padding: 5px 10px;
+    @media screen and (max-width: 374px) {
+        font-size:13px;
+    }
+`
+
+
+export const PositionMoves = styled.a`
+    margin:5px;
+    border-radius:10px;
+    background: #ededed;
+    padding: 5px 10px;
+    cursor:pointer;
+    text-decoration: none;
+    color:black;
+
+    &:hover {
+        background: green;
+        color:white;
+    }
+
+    &:focus {
+        background: green;
+        color:white;
+    }
+
+    @media screen and (max-width: 374px) {
+        font-size:13px;
+    }
+`
