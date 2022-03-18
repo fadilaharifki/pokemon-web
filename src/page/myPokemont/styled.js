@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 export const Section = styled.section`
     display:flex;
     flex-direction:column;
-    height: 100vh;
+    height: 91vh;
     overflow-y: scroll;
 `
 
