@@ -1,5 +1,4 @@
 import { Routes as ReactRoutes, Route } from "react-router-dom";
-import NotFound from "pages/404";
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 import Home from './page/home';
