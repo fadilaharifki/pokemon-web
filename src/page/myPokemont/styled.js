@@ -1,6 +1,8 @@
 import styled from "@emotion/styled"
 
 export const Section = styled.section`
+    display:flex;
+    flex-direction:column;
     height: 100vh;
     overflow-y: scroll;
 `
@@ -13,16 +15,19 @@ export const ContainerList = styled.div`
     width: 100%;
 `
 
+export const ContainerCard = styled.div`
+    background-image:  linear-gradient(90deg, rgba(177,240,227,1) 0%, rgba(143,201,130,1) 46%, rgba(242,255,141,1) 100%);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
+`
+
 export const Card = styled.div`
     display:flex;
     flex-direction:column;
     justify-content:center;
     width: 125px;
     height: 125px;
-    padding: 20px;
-    margin: 5px;
-    background-image:  linear-gradient(90deg, rgba(177,240,227,1) 0%, rgba(143,201,130,1) 46%, rgba(242,255,141,1) 100%);
-    border-radius: 15px;
     cursor: pointer;
 
     @media screen and (max-width: 374px) {
@@ -43,9 +48,20 @@ export const Card = styled.div`
 `
 
 export const TitleCard = styled.div`
+    margin-top:-15px;
     text-transform: uppercase;
     text-align:center;
     font-weight:bold;
+
+    @media screen and (max-width: 374px) {
+        font-size:13px;
+    }
+`
+
+export const TitleCard2 = styled.div`
+    margin-top:5px;
+    text-transform: uppercase;
+    text-align:center;
 
     @media screen and (max-width: 374px) {
         font-size:13px;
@@ -65,7 +81,8 @@ export const PositionType = styled.div`
     background: #de6000;
     padding: 5px 10px;
     color:white;
-    @media screen and (max-width: 375px) {
+
+    @media screen and (max-width: 374px) {
         font-size:13px;
     }
 `
@@ -84,8 +101,6 @@ export const ContainerDetail = styled.div`
 `
 
 export const CardDetail = styled.div`
-    display:flex;
-    flex-direction: row;
     margin-top:-3rem;
     padding:20px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -103,12 +118,9 @@ export const CardBottom = styled.div`
     margin-top:-3rem;
     z-index:1;
     background:white;
-    height : 100vh;
+    height : auto;
     border-radius: 100px 0 0 0;
 
-    @media screen and (max-width: 414px) {
-        height : auto;
-    }
 `
 
 export const ContainerChart = styled.div`
@@ -230,22 +242,37 @@ export const BtnCatch = styled.div`
 export const Input = styled.input`
     padding: 10px 20px;
     margin: 8px 0;
-    border-radius:10px;
+    border-radius:15px;
     outline: none;
     border: 1px solid;
-    width: 75%
 `
 
-export const Img = styled.img`
+export const ContainerMyPoke = styled.div`
     display:flex;
-    width:130px;
-`
-
-export const ContainerSearch = styled.div`
-    display:flex;
-    flex-direction: row;
-    margin-top:20px;
+    flex-direction:column;
     justify-content:center;
-    flex-wrap: wrap;
-    width: 100%;
+    align-items:center;
+    height:90vh;
+`
+
+export const BtnRelease = styled.div`
+    margin-top:20px;
+    border-radius:10px;
+    background: #de6000;
+    padding: 5px 10px;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+
+    @media screen and (max-width: 374px) {
+        font-size:13px;
+    }
+`
+
+export const TitlePage = styled.div`
+    margin : 20px 20px;
+    font-size:25px;
+    font-weight: bold;
+    text-transform: uppercase;
+
 `

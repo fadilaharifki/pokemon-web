@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import { GET_POKEMONS, GET_POKEMON_DETAIL } from "../../graphql/queries";
+import { GET_POKEMONS } from "../../graphql/queries";
 import { useQuery } from '@apollo/client'
 import { Section } from './styled'
 import ListPokemon from "./listPokemon";
-import { ContainerList } from "./styled"
+import { ContainerList, Input, ContainerSearch } from "./styled"
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Home() {
@@ -19,6 +19,8 @@ export default function Home() {
     })
 
     const [isLoading, setIsLoading] = useState(false)
+    const [search, setSearch] = useState()
+    const [suggest, setSuggest] = useState([])
 
     const [item, setItem] = useState([])
 
@@ -46,41 +48,83 @@ export default function Home() {
         }
     }
 
+    const handleSearch = (e) => {
+        const dataPokemon = [...data.pokemons.results, ...item]
+        let suggestion = []
+        if (e.target.value.length > 0) {
+            suggestion = dataPokemon.filter((el) => el.name.toLowerCase().includes(e.target.value.toLowerCase()))
+        }
+
+        setSearch(e.target.value)
+        setSuggest(suggestion);
+    }
+
     if (loading) return <p>...Loading...</p>
 
     return (
         <Section id="pokemonlist">
-            <ContainerList>
-                {
-                    data?.pokemons?.results.map((e, i) => {
-                        return (
-                            <div key={i}>
-                                <ListPokemon data={e} />
-                            </div>
-                        )
-                    })
-                }
-            </ContainerList>
-            <InfiniteScroll
-                dataLength={item.length}
-                next={loadMore}
-                hasMore={false}
-                loader={<p>...Loading...</p>}
-                onScroll={loadMore}
-                scrollableTarget="pokemonlist"
-            >
-                <ContainerList>
-                    {
-                        item.map((e, i) => {
-                            return (
-                                <div key={i}>
-                                    <ListPokemon data={e} />
-                                </div>
-                            )
-                        })
-                    }
-                </ContainerList>
-            </InfiniteScroll>
+            <ContainerSearch>
+                <Input onChange={handleSearch} placeholder="Search pokemon" type="text" />
+            </ContainerSearch>
+            {
+                suggest.length > 0 && (
+                    <ContainerList>
+                        {
+                            suggest.map((e, i) => {
+                                return (
+                                    <div key={i}>
+                                        <ListPokemon data={e} />
+                                    </div>
+                                )
+                            })
+                        }
+                    </ContainerList>
+                )
+            }
+            {
+                search && suggest.length === 0 && (
+                    <ContainerSearch>
+                        {search} not found!!!
+                    </ContainerSearch>
+                )
+            }
+            {
+                !search && (
+                    <>
+                        <ContainerList>
+                            {
+                                data?.pokemons?.results.map((e, i) => {
+                                    return (
+                                        <div key={i}>
+                                            <ListPokemon data={e} />
+                                        </div>
+                                    )
+                                })
+                            }
+                        </ContainerList>
+                        <InfiniteScroll
+                            dataLength={item.length}
+                            next={loadMore}
+                            hasMore={false}
+                            loader={<p>...Loading...</p>}
+                            onScroll={loadMore}
+                            scrollableTarget="pokemonlist"
+                        >
+                            <ContainerList>
+                                {
+                                    item.map((e, i) => {
+                                        return (
+                                            <div key={i}>
+                                                <ListPokemon data={e} />
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </ContainerList>
+                        </InfiniteScroll>
+                    </>
+                )
+            }
         </Section>
     )
 }

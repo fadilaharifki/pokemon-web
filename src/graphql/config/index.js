@@ -2,10 +2,9 @@ import {
     ApolloClient,
     InMemoryCache,
 } from "@apollo/client";
-
-import { offsetLimitPagination } from "@apollo/client/utilities";
+import { BASE_URL } from "../../utils/URL";
 
 export const client = new ApolloClient({
-    uri: 'https://graphql-pokeapi.graphcdn.app/',
+    uri: `${BASE_URL}`,
     cache: new InMemoryCache()
 });

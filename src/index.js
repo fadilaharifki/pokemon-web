@@ -4,22 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
-  ApoloClient,
-  InMemoryCache,
   ApolloProvider,
-  useQuery,
-  gql
 } from '@apollo/client'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import { client } from './graphql/config'
+import { MyPokemonProvider } from './utils/myPokemonContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <Router>
-        <App />
-      </Router>
+      <MyPokemonProvider>
+        <Router>
+          <App />
+        </Router>
+      </MyPokemonProvider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
