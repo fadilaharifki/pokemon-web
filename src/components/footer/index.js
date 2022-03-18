@@ -18,10 +18,10 @@ export default function Footer() {
                     <Link to="/"><BiHome style={{ color: 'white' }} size="25" /></Link>
                     <div>Find Pokemon</div>
                 </Menu>
-                {/* <Menu>
+                <Menu>
                     <Link to="/about"><RiErrorWarningLine style={{ color: 'white' }} size="25" /></Link>
                     <div>About</div>
-                </Menu> */}
+                </Menu>
             </ContainerContent>
         </Container>
     )
