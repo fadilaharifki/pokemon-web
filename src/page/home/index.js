@@ -61,6 +61,8 @@ export default function Home() {
 
     if (loading) return <p>...Loading...</p>
 
+    if (isLoading) return <p>...Loading...</p>
+
     return (
         <Section id="pokemonlist">
             <ContainerSearch>

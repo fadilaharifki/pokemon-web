@@ -4,6 +4,10 @@ export const Section = styled.section`
     height: 100vh;
     overflow-y: scroll;
 `
+export const SectionDetail = styled.section`
+    height: 100vh;
+    overflow-y: scroll;
+`
 
 export const ContainerList = styled.div`
     display:flex;
@@ -18,8 +22,7 @@ export const Card = styled.div`
     flex-direction:column;
     justify-content:center;
     width: 125px;
-    height: 125px;
-    padding: 20px;
+    padding: 10px 20px;
     margin: 5px;
     background-image:  linear-gradient(90deg, rgba(177,240,227,1) 0%, rgba(143,201,130,1) 46%, rgba(242,255,141,1) 100%);
     border-radius: 15px;
@@ -27,7 +30,6 @@ export const Card = styled.div`
 
     @media screen and (max-width: 374px) {
         width: 90px;
-        height: 90px;
         padding: 30px 20px;
     }
 
@@ -65,7 +67,18 @@ export const PositionType = styled.div`
     background: #de6000;
     padding: 5px 10px;
     color:white;
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 374px) {
+        font-size:13px;
+    }
+`
+
+export const Owned = styled.div`
+    margin:10px 2px;
+    border-radius:10px;
+    background: #de6000;
+    padding: 5px 10px;
+    color:white;
+    @media screen and (max-width: 374px) {
         font-size:13px;
     }
 `
@@ -85,7 +98,7 @@ export const ContainerDetail = styled.div`
 
 export const CardDetail = styled.div`
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top:-3rem;
     padding:20px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -94,6 +107,11 @@ export const CardDetail = styled.div`
     width: 70%;
     height :12rem;
     border-radius:20px;
+    `
+
+export const Content = styled.div`
+    display:flex;
+    flex-direction: row;
     `
 
 export const CardBottom = styled.div`
@@ -167,7 +185,6 @@ export const Desc = styled.div`
 `
 export const ContainerAbility = styled.div`
     display: flex;  
-    flex-wrap: wrap;
     flex-direction:row;
     justify-content: start;
     align-items:center;

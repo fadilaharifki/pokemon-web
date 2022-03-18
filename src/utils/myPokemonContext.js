@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { createMypokemon } from "./localstorage";
 
 export const MyPokemonContext = createContext();

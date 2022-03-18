@@ -3,7 +3,6 @@ import { useQuery } from "@apollo/client";
 import { GET_POKEMON_DETAIL } from "../../graphql/queries";
 import { ContainerCard, Card, TitleCard, TitleCard2, PositionTypeContainer, PositionType, BtnRelease } from "./styled";
 import { useNavigate } from 'react-router-dom'
-import { detailPokemonVar } from "../../graphql/vars";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function ListPokemon(props) {

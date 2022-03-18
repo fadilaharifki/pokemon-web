@@ -27,12 +27,10 @@ export const Card = styled.div`
     flex-direction:column;
     justify-content:center;
     width: 125px;
-    height: 125px;
     cursor: pointer;
 
     @media screen and (max-width: 374px) {
         width: 90px;
-        height: 90px;
         padding: 30px 20px;
     }
 
@@ -256,7 +254,7 @@ export const ContainerMyPoke = styled.div`
 `
 
 export const BtnRelease = styled.div`
-    margin-top:20px;
+    margin-top:5px;
     border-radius:10px;
     background: #de6000;
     padding: 5px 10px;

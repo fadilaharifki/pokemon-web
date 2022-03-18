@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Section, ShapeBackgorund, ContainerDetail, Desc, BtnCatch, Img, TitleBottom, TitleDetail, CardDetail, PositionMoves, Input, ContainerMove, PositionAbility, NumberChart, ContainerAbility, PositionTypeContainer, PositionType, CardBottom, TitleChart, ContainerChart, Bar, Bar2 } from './styled'
+import { SectionDetail, ShapeBackgorund, ContainerDetail, Desc, BtnCatch, Img, Content, TitleBottom, TitleDetail, CardDetail, PositionMoves, Input, ContainerMove, PositionAbility, NumberChart, ContainerAbility, PositionType, CardBottom, TitleChart, ContainerChart, Bar, Bar2 } from './styled'
 import Swal from "sweetalert2";
 import ModalComponent from "../../components/modal";
 import { BASE_URL_ANIMATE } from "../../utils/URL";
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function DetailPokemon() {
-    const { state } = useLocation();
     const navigate = useNavigate()
-    // console.log(state, 'state');
+    const { state } = useLocation();
     const [open, setOpen] = useState(false);
     const [nickName, setNickName] = useState(state.pokemon.name);
+    const [disable, setDisable] = useState(false);
 
     const name = ["Hp", "Attack", "Defense", "Sp-Attack", "Sp-Defense", "Speed"]
 
     const catchPokemon = () => {
+        setDisable(true)
         const probability = Math.floor(Math.random() * 100);
 
         toast.loading('Throwing ball!!!', {
@@ -24,6 +25,7 @@ export default function DetailPokemon() {
         setTimeout(() => {
             if (probability <= 50) {
                 toast.error(`Yeaah, ${state.pokemon.name} run`, { duration: 2000 });
+                setDisable(false)
             } else {
                 toast.success(`Wow, you catch ${state.pokemon.name}`, { duration: 2000 });
                 setOpen(true)
@@ -53,7 +55,9 @@ export default function DetailPokemon() {
                 showConfirmButton: false,
                 timer: 1500
             })
+            navigate('/mypokemon')
             setOpen(false)
+            setDisable(false)
 
         } else {
             const obj = { ...state }
@@ -67,12 +71,14 @@ export default function DetailPokemon() {
                 showConfirmButton: false,
                 timer: 1500
             })
+            navigate('/mypokemon')
+            setDisable(false)
             setOpen(false)
         }
     }
 
     return (
-        <Section>
+        <SectionDetail>
             <Toaster
                 position="top-center"
             />
@@ -80,22 +86,26 @@ export default function DetailPokemon() {
             </ShapeBackgorund>
             <ContainerDetail>
                 <CardDetail>
-                    <div>
-                        <TitleDetail>{state.pokemon.name}</TitleDetail>
-                        <ContainerAbility>
+                    <TitleDetail>{state.pokemon.name}</TitleDetail>
+                    <Content>
+                        <div>
+                            <ContainerAbility>
+                                {
+                                    state?.pokemon?.types?.map((e, i) => {
+                                        return (
+                                            <PositionType key={i}>{e.type.name}</PositionType>
+                                        )
+                                    })
+                                }
+                            </ContainerAbility>
+                            <div>Weight : {state.pokemon.weight} kg</div>
+                            <div>Height : {state.pokemon.height} m</div>
                             {
-                                state?.pokemon?.types?.map((e, i) => {
-                                    return (
-                                        <PositionType key={i}>{e.type.name}</PositionType>
-                                    )
-                                })
+                                disable ? <BtnCatch>Catch!</BtnCatch> : <BtnCatch onClick={catchPokemon}>Catch!</BtnCatch>
                             }
-                        </ContainerAbility>
-                        <div>Weight : {state.pokemon.weight} kg</div>
-                        <div>Height : {state.pokemon.height} m</div>
-                        <BtnCatch onClick={catchPokemon}>Catch!</BtnCatch>
-                    </div>
-                    <Img src={`${BASE_URL_ANIMATE}/${state.pokemon.id}.gif`} />
+                        </div>
+                        <Img src={`${BASE_URL_ANIMATE}/${state.pokemon.id}.gif`} />
+                    </Content>
                 </CardDetail>
             </ContainerDetail>
             <CardBottom>
@@ -148,10 +158,10 @@ export default function DetailPokemon() {
                     </ContainerMove>
                 </Desc>
             </CardBottom>
-            <ModalComponent open={open} setOpen={setOpen} title={"Nickname"}>
+            <ModalComponent open={open} setOpen={setOpen} title={"Nickname"} setDisable={setDisable}>
                 <Input value={nickName} onChange={Nickname} placeholder="Input Nickname" type="text" />
                 <BtnCatch onClick={submit}>Submit</BtnCatch>
             </ModalComponent>
-        </Section>
+        </SectionDetail>
     );
 }
