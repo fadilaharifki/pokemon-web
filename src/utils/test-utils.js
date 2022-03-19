@@ -5,7 +5,6 @@ import { BrowserRouter, Routes as ReactRoutes, Route } from "react-router-dom";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const testRendererWithRoute = (ui, { route, path }) => {
-  console.log(path);
   render(
     <ApolloProvider client={client}>
       <ReactRoutes>

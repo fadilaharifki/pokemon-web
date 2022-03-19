@@ -256,6 +256,7 @@ export const Input = styled.input`
 export const Img = styled.img`
     display:flex;
     width:130px;
+    height:130px;
 `
 
 export const ContainerSearch = styled.div`

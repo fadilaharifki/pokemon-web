@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing tag page about render page about 1`] = `
+<div
+  class="css-bqaej9"
+  role="title"
+>
+  Pokemon APP
+</div>
+`;
+
+exports[`Testing tag page about render page about 2`] = `
+<div
+  role="desc"
+>
+  A simple web application developed with react js, javascript made by 
+  <a
+    href="https://github.com/fadilaharifki/pokemon-web"
+  >
+    fadil
+  </a>
+</div>
+`;
+
+exports[`Testing tag page my pokemon render page my pokemon 1`] = `
+<div
+  class="css-bqaej9"
+  role="title"
+>
+  Pokemon APP
+</div>
+`;
+
+exports[`Testing tag page my pokemon render page my pokemon 2`] = `
+<div
+  role="desc"
+>
+  A simple web application developed with react js, javascript made by 
+  <a
+    href="https://github.com/fadilaharifki/pokemon-web"
+  >
+    fadil
+  </a>
+</div>
+`;
